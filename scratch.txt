@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 hello charles! hope you had a swell breakfast
 
+=======
+hello el capitan
+>>>>>>> aaf63f0 (added a comment)
