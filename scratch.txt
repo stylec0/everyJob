@@ -1,7 +1,7 @@
 
 
 hello git captain charles! Pet your dogs for me next time you can :)
-=======
+
 hello charles! hope you had a swell breakfast
 
 hello el capitan
@@ -9,4 +9,7 @@ hello el capitan
 
 Hello there
 
->>>>>>> b239dda (test)
+
+It is Riaz
+
+
