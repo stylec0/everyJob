@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('home/', views.home, name='home'),
     # path('about/', views.about, name='about'),
+    # We will have login, logout, jobtitle/index/home, jobpost detail routes
 ]
