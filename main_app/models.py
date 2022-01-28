@@ -17,7 +17,6 @@ INDUSTRIES = (
     ('S', 'Science'),
 )
 
-
 class JobTitle(models.Model):
     job_title = models.CharField(max_length=50)
 
@@ -26,7 +25,6 @@ class JobTitle(models.Model):
 
     # def get_absolute_url(self):
     #    return reverse('title_detail', kwargs={'pk': self.id})
-
 
 class JobPost(models.Model):
     job_title = models.ManyToManyField(JobTitle)
