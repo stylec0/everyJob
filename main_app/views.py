@@ -10,4 +10,4 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home(request):
-    return HttpResponse('home.html')
+    return render(request, 'home.html')
