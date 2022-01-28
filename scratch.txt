@@ -1,2 +1,7 @@
 
+
 hello git captain charles! Pet your dogs for me next time you can :)
+=======
+hello charles! hope you had a swell breakfast
+
+>>>>>>> cabf247 (fixed)
