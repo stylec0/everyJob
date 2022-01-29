@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<a id="add_post" class="waves-effect waves-light btn-small right" href="/">Add a Post</a>
+<h2 class="border-bottom title">Designer</h2>
+<!-- job.job_title -->
+<!-- if user.is_authenticated -->
+
+<!-- endif -->
+<div class="row">
+	<!-- for job in jobPost -->
+	<div class=" col s6">
+		<div class="job-post">
+			<div class="top ">
+				<!-- job.industry -->
+				<span>Field Art</span>
+				<!-- job.years_experience -->
+				<span class="right">3 years experience</span>
+			</div>
+			<div class="">
+				<!-- job.details -->
+				<p>I research and organize media and text into layouts for formats such as websites and apps</p>
+			</div>
+			<div class="bottom">
+				<span>Tags #web</span>
+				<span class="right">date posted</span>
+			</div>
+		</div>
+	</div>
+	<!-- endfor -->
+</div>
+{% endblock %}

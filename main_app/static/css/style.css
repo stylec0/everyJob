@@ -1,0 +1,51 @@
+.border-bottom {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	color: #2d3436;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+.card-panel {
+	border-radius: 8px;
+	padding: 1rem;
+	text-align: center;
+}
+
+.job-post {
+	box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%),
+		0 3px 1px -2px rgb(0 0 0 / 12%),
+		0 1px 5px 0 rgb(0 0 0 / 20%);
+	padding: .5rem;
+}
+
+.top {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+	padding: 8px 5px 8px 5px;
+}
+
+.top,
+.bottom {
+	font-size: .7rem;
+	text-transform: uppercase;
+}
+
+.bottom {
+	border-top: 1px solid rgba(0, 0, 0, 0.14);
+	padding: 8px 5px 0 5px;
+}
+
+.title {
+	padding-bottom: 1rem;
+}
+
+#add_post {
+	margin-top: 1rem;
+}
