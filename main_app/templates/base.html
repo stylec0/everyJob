@@ -24,13 +24,12 @@
 				<ul class="right">
 					<li><a href="{% url 'home' %}">Home</a></li>
 					<li><a href="/">About</a></li>
-					{% if 1 == 1 %}
-					<!-- if user.is_authenticated -->
+					{% if user.is_authenticated %}
 					<li><a href="/">Add a Job Title</a></li>
 					<li><a href="/">Log Out</a></li>
 					{% else %}
-					<li><a href="/">Log In</a></li>
-					<li><a href="/">Sign up</a></li>
+					<li><a href="{% url 'login' %}">Log In</a></li>
+					<li><a href="{% url 'signup' %}"">Sign up</a></li>
 					{% endif %}
 				</ul>
 			</div>
