@@ -19,7 +19,13 @@ def home(request):
     })
 
 
-class JobPostCreate(LoginRequiredMixin,  CreateView):
+# make a form for add job, like feeding_form
+def JobPostCreate(request, job_title_id):
+    title = JobTitle.objects.get(id=job_title_id)
+    job_form
+
+
+class JobPostCreate(LoginRequiredMixin, CreateView):
     model = JobPost
     fields = ['industry', 'details', 'years_experience']
     def form_valid(self, form):
