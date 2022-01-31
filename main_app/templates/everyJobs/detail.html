@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<!-- job.job_title -->
-<!-- if user.is_authenticated -->
+
+
+{% if user.is_authenticated %}
 <a id="add_post" class="waves-effect waves-light btn-small right" href="/">Add a Post</a>
-<!-- endif -->
-<h2 class="border-bottom title">Designer</h2>
+{% endif %}
+<h2 class="border-bottom title">{{ job_title }}</h2>
 
 <div class="row">
-	<!-- for job in jobPost -->
+	{% if jobPost %}
+	{% for job in jobPost %}
 	<div class=" col s6">
 		<div class="job-post">
 			<div class="top ">
-				<!-- job.industry -->
+				{{ job.industry }}
 				<span>Field Art</span>
-				<!-- job.years_experience -->
+				{{ job.years_experience }}
 				<span class="right">3 years experience</span>
 			</div>
 			<div class="">
-				<!-- job.details -->
+				{{ job.details }}
 				<p>I research and organize media and text into layouts for formats such as websites and apps</p>
 			</div>
 			<div class="bottom">
@@ -26,6 +28,9 @@
 			</div>
 		</div>
 	</div>
-	<!-- endfor -->
+	{% endfor %}
+	{% else %}
+	<h2>No Posts</h2>
+	{% endif %}
 </div>
 {% endblock %}

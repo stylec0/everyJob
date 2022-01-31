@@ -18,7 +18,7 @@
 			<div class="nav-wrapper">
 				<ul>
 					<li>
-						<a href="/" class="left brand-logo">&nbsp;&nbsp;everyJobs</a>
+						<!-- <a href="/" class="left brand-logo">&nbsp;&nbsp;everyJobs</a> -->
 					</li>
 				</ul>
 				<ul>
@@ -26,7 +26,7 @@
 					<li><a href="/">About</a></li>
 					{% if user.is_authenticated %}
 					<li><a href="{% url 'job_title_create' %}">Add a Job Title</a></li>
-					<li><a href="/">Log Out</a></li>
+					<li><a href="{% url 'logout' %}">Log Out</a></li>
 					{% else %}
 					<li><a href="{% url 'job_post' %}">Add Job</li>
 					<li><a href="{% url 'login' %}">Log In</a></li>
