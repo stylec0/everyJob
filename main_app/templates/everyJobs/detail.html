@@ -3,7 +3,8 @@
 
 
 {% if user.is_authenticated %}
-<a id="add_post" class="waves-effect waves-light btn-small right" href="{% url 'add_job_post' %}">Add a Post</a>
+<a id="add_post" class="waves-effect waves-light btn-small right" href="{% url 'add_job_post' job_title.id %}">Add a
+    Post</a>
 {% endif %}
 <h2 class="border-bottom title">{{ job_title }}</h2>
 

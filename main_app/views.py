@@ -59,6 +59,20 @@ def GetJobPostForm(request, job_title_id):
 #        # this lets the CreateView do it's job
 #        return super().form_valid(form)
 
+class JobPostCreate(LoginRequiredMixin,  CreateView):
+    model = JobPost
+    fields = ['industry', 'details', 'years_experience']
+    def form_valid(self, form):
+        # form.instance is the jobpost being created
+        form.instance.user = self.request.user
+        # this lets the CreateView do it's job
+        super().form_valid(form)
+        return redirect(
+            'detail',
+            job_title_id = model.job_title.id
+        )
+
+
 
 class JobTitleCreate(LoginRequiredMixin, CreateView):
     model = JobTitle
@@ -94,5 +108,5 @@ def job_title_detail(request, job_title_id):
     job_title = JobTitle.object.get(id=job_title_id)
     return render(request, 'everyjobs/detail.html', {
             'jobPost': details,
-            'jobTitle': job_title
+            'job_title': job_title
     })
