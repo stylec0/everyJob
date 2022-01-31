@@ -22,12 +22,12 @@ def home(request):
 class JobPostCreate(CreateView):
     model = JobPost
     fields = ['industry', 'details', 'years_experience']
-
     def form_valid(self, form):
         # form.instance is the jobpost being created
         form.instance.user = self.request.user
         # this lets the CreateView do it's job
         return super().form_valid(form)
+
 
 class JobTitleCreate(LoginRequiredMixin, CreateView):
     model = JobTitle
@@ -36,6 +36,7 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
 def signup(request):
     error_message = ''
@@ -51,8 +52,11 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+
 def job_title_detail(request, job_title_id):
     details = JobPost.objects.filter(job_title=job_title_id)
-    return render(request, 'everyjobs/detail.html', {
-            'jobPost': details
+    job_title = JobTitle.objects.get(id=job_title_id)
+    return render(request, 'everyJobs/detail.html', {
+        'jobPost': details,
+        'job_title': job_title
     })
