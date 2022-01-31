@@ -40,3 +40,6 @@ class JobPost(models.Model):
     details = models.TextField(max_length=2000)
     years_experience = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.job_title})
