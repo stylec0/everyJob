@@ -17,6 +17,7 @@ INDUSTRIES = (
     ('S', 'Science'),
 )
 
+
 class JobTitle(models.Model):
     job_title = models.CharField(max_length=50)
 
@@ -25,6 +26,7 @@ class JobTitle(models.Model):
 
     # def get_absolute_url(self):
     #    return reverse('title_detail', kwargs={'pk': self.id})
+
 
 class JobPost(models.Model):
     job_title = models.ManyToManyField(JobTitle)
@@ -36,8 +38,8 @@ class JobPost(models.Model):
     years_experience = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.job_title
+    # def __str__(self):
+    #    return self.job_title
 
     # def get_absolute_url(self):
     #    return reverse('post_detail', kwargs={'pk': self.id})

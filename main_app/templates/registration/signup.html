@@ -12,7 +12,7 @@
 	{% csrf_token %}
 
 	{{ form.as_p }}
-	<input type="submit" class="btn" value="signup">
+	<input type="submit" class="btn" value="signup" value="{{next}}">
 </form>
 
 {% endblock %}
