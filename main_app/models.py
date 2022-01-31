@@ -34,13 +34,19 @@ class JobPost(models.Model):
     industry = models.CharField(
         max_length=27,
         choices=INDUSTRIES,
+        default=INDUSTRIES[0][0]
     )
     details = models.TextField(max_length=2000)
     years_experience = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    # def __str__(self):
-    #    return self.job_title
+    def __str__(self):
+        return self.job_title
 
     # def get_absolute_url(self):
+<<<<<<< HEAD
     #    return reverse('post_detail', kwargs={'pk': self.id})
+=======
+    #    return reverse('post_detail', kwargs={'pk': self.id})
+
+>>>>>>> 447ca08 (testing)
