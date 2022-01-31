@@ -22,7 +22,6 @@ def home(request):
 class JobPostCreate(CreateView):
     model = JobPost
     fields = ['industry', 'details', 'years_experience']
-
     def form_valid(self, form):
         # form.instance is the jobpost being created
         form.instance.user = self.request.user
@@ -56,6 +55,8 @@ def signup(request):
 
 def job_title_detail(request, job_title_id):
     details = JobPost.objects.filter(job_title=job_title_id)
-    return render(request, 'everyjobs/detail.html', {
-        'jobPost': details
+    job_title = JobTitle.objects.get(id=job_title_id)
+    return render(request, 'everyJobs/detail.html', {
+        'jobPost': details,
+        'job_title': job_title
     })

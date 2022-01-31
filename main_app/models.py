@@ -26,7 +26,7 @@ class JobTitle(models.Model):
         return self.job_title
 
     def get_absolute_url(self):
-       return reverse('detail', kwargs={'job_title_id': self.id})
+        return reverse('detail', kwargs={'job_title_id': self.id})
 
 
 class JobPost(models.Model):
@@ -40,7 +40,7 @@ class JobPost(models.Model):
     years_experience = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'job_title_id': self.id})
     # def __str__(self):
     #     return self.user
-
-    
