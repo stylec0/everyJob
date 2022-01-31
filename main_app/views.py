@@ -19,9 +19,10 @@ def home(request):
     })
 
 
-class JobPostCreate(CreateView):
+class JobPostCreate(LoginRequiredMixin,  CreateView):
     model = JobPost
     fields = ['industry', 'details', 'years_experience']
+
     def form_valid(self, form):
         # form.instance is the jobpost being created
         form.instance.user = self.request.user
