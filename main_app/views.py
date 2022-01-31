@@ -22,7 +22,6 @@ def home(request):
 class JobPostCreate(LoginRequiredMixin,  CreateView):
     model = JobPost
     fields = ['industry', 'details', 'years_experience']
-
     def form_valid(self, form):
         # form.instance is the jobpost being created
         form.instance.user = self.request.user
@@ -37,6 +36,11 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+# def JobPostCreate(request, job_title_id):
+#     print(job_title_id, "id")
+#     print(request, "request")
 
 
 def signup(request):
