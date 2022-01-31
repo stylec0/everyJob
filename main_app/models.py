@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django import forms
@@ -39,8 +40,3 @@ class JobPost(models.Model):
     details = models.TextField(max_length=2000)
     years_experience = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def get_absolute_url(self):
-        return reverse('detail', kwargs={'job_title_id': self.id})
-    # def __str__(self):
-    #     return self.user
