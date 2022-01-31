@@ -42,5 +42,5 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-def job_detail(request):
+def job_title_detail(request):
     return render(request, 'everyjobs/detail.html')
