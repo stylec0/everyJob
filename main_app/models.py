@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django import forms
 
 
 # To be edited/added later
@@ -21,17 +22,17 @@ INDUSTRIES = (
 class JobTitle(models.Model):
     job_title = models.CharField(max_length=50)
 
-    def __str__(self):
+    def str(self):
         return self.job_title
 
-    # def get_absolute_url(self):
-    #    return reverse('title_detail', kwargs={'pk': self.id})
+    def get_absolute_url(self):
+        return '../'
 
 
 class JobPost(models.Model):
     job_title = models.ManyToManyField(JobTitle)
     industry = models.CharField(
-        max_length=50,
+        max_length=27,
         choices=INDUSTRIES,
     )
     details = models.TextField(max_length=2000)
