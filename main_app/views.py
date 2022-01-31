@@ -51,6 +51,8 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
-
-def job_title_detail(request):
-    return render(request, 'everyjob/detail.html')
+def job_title_detail(request, job_title_id):
+    details = JobPost.objects.filter(job_title=job_title_id)
+    return render(request, 'everyjobs/detail.html', {
+            'jobPost': details
+    })
