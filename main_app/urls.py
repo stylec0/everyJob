@@ -6,7 +6,8 @@ from . import views  # views is the name of the file
 urlpatterns = [
     path('', views.home, name='home'),
     # path('about/', views.about, name='about'),
-    path('everyjob/', views.job_detail, name='detail'),
+    path('everyjob/', views.job_title_detail, name='detail'),
+    # add /:id when we can ^^
     # We will have login, logout, jobtitle/index/home, jobpost detail routes
     path('accounts/signup/', views.signup, name='signup'),
 ]
