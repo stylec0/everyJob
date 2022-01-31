@@ -21,15 +21,16 @@
 						<a href="/" class="left brand-logo">&nbsp;&nbsp;everyJobs</a>
 					</li>
 				</ul>
-				<ul class="right">
+				<ul>
 					<li><a href="{% url 'home' %}">Home</a></li>
 					<li><a href="/">About</a></li>
 					{% if user.is_authenticated %}
-					<li><a href="/">Add a Job Title</a></li>
+					<li><a href="{% url 'job_title_create' %}">Add a Job Title</a></li>
 					<li><a href="/">Log Out</a></li>
 					{% else %}
+					<li><a href="{% url 'job_post' %}">Add Job</li>
 					<li><a href="{% url 'login' %}">Log In</a></li>
-					<li><a href="{% url 'signup' %}"">Sign up</a></li>
+					<li><a href="{% url 'signup' %}">Sign up</a></li>
 					{% endif %}
 				</ul>
 			</div>

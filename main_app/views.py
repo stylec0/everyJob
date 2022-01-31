@@ -13,12 +13,15 @@ from .models import JobTitle, JobPost
 
 
 def home(request):
-    return render(request, 'home.html')
+    jobTitle = JobTitle.objects.all()
+    return render(request, 'home.html', {
+        'jobTitle': jobTitle
+    })
 
 
 class JobPostCreate(CreateView):
     model = JobPost
-    fields = '__all__'
+    fields = ['industry', 'details', 'years_experience']
 
     def form_valid(self, form):
         # form.instance is the jobpost being created
@@ -26,6 +29,13 @@ class JobPostCreate(CreateView):
         # this lets the CreateView do it's job
         return super().form_valid(form)
 
+class JobTitleCreate(LoginRequiredMixin, CreateView):
+    model = JobTitle
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 def signup(request):
     error_message = ''
@@ -43,4 +53,4 @@ def signup(request):
 
 
 def job_title_detail(request):
-    return render(request, 'everyjobs/detail.html')
+    return render(request, 'everyjob/detail.html')
