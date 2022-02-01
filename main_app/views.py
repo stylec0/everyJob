@@ -20,6 +20,7 @@ def home(request):
     })
 
 
+# this is a test comment
 # wrote view function because we needed to associate
 # both the user and the JobTitle with the job post being created
 def JobPostCreate(request, job_title_id):
