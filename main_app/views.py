@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import JobTitle, JobPost
-from .forms import JobPostForm
+from .forms import JobPostForm, JobPostUpdateForm
 
 
 def home(request):
