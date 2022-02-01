@@ -3,6 +3,7 @@ body {
 
 }
 
+
 .job-title {
 	text-decoration: none;
 	color: rgba(0, 0, 0, .55);
@@ -21,4 +22,12 @@ body {
 .job-title-container {
 	margin-top: .5rem;
 	margin-bottom: .5rem;
+}
+
+.footer {
+	/* position: absolute;
+	bottom: 0; */
+	width: 100%;
+	height: 60px;
+	background-color: aliceblue;
 }

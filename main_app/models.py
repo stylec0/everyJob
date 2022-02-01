@@ -33,7 +33,7 @@ class JobTitle(models.Model):
 class JobPost(models.Model):
     job_title = models.ManyToManyField(JobTitle)
     industry = models.CharField(
-        max_length=27,
+        max_length=3,
         choices=INDUSTRIES,
         default=INDUSTRIES[0][0]
     )
