@@ -3,25 +3,29 @@
 
 
 {% if user.is_authenticated %}
-<a id="add_post" class="waves-effect waves-light btn-small right" href="{% url 'add_job_post' job_title.id %}">Add a
+<a id="add_post" class="btn btn-outline-primary float-end" href="{% url 'add_job_post' job_title.id %}">Add a
 	Post</a>
 {% endif %}
-<h2 class="border-bottom title">{{ job_title }}</h2>
+<h2 id="job-title" class="border-bottom title pb-3 pt-2">{{ job_title }}</h2>
 
 <div class="row">
 	{% if jobPost %}
 	{% for job in jobPost %}
-	<div class=" col s6">
-		<div class="job-post">
-			<div class="top ">
-				<span>Field {{job.industry}}</span>
-				<span class="right">{{ job.years_experience }} years experience</span>
+	<div class=" col-6">
+		<div class="card job-post">
+			<div class="top card-header d-flex justify-content-between">
+				<!-- fix this -->
+				<span><small class="text-muted">Field</small> {{job.industry}}</span>
+				<!-- if statement for one year -->
+				<span class="text-end">{{ job.years_experience }} years experience</span>
 			</div>
-			<div class="">
+			<div class="card-body">
 				<p>{{ job.details }}</p>
 			</div>
-			<div class="bottom">
+			<div class="bottom card-footer d-flex justify-content-between">
+				<!-- add -->
 				<span>Tags #web</span>
+				<!-- add -->
 				<span class="right">date posted</span>
 			</div>
 		</div>
