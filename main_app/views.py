@@ -67,6 +67,7 @@ def GetJobPostForm(request, job_title_id):
         'JobForm': jobform
     })
 
+
 @login_required
 def GetJobPostUpdate(request, job_title_id):
     jobtitle = JobTitle.objects.get(pk=job_title_id)
@@ -75,6 +76,7 @@ def GetJobPostUpdate(request, job_title_id):
         'JobTitle': jobtitle,
         'JobUpdateForm': jobupdateform
     })
+
 
 @login_required
 def UpdateJobPost(request, job_title_id, job_post_id):
@@ -97,6 +99,7 @@ def UpdateJobPost(request, job_title_id, job_post_id):
         # and reassigning it
         # (re-passing the parameter so we can use it on the page)
     return redirect('detail', job_title_id=job_title_id)
+
 
 @login_required
 def GetJobPostUpdate(request, job_post_id):
@@ -154,4 +157,3 @@ def job_title_detail(request, job_title_id):
         'jobPost': details,
         'job_title': job_title
     })
-
