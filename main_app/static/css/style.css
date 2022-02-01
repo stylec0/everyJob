@@ -3,7 +3,10 @@ body {
 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0236b15 (switched to bootstrap)
 .job-title {
 	text-decoration: none;
 	color: rgba(0, 0, 0, .55);
@@ -22,6 +25,7 @@ body {
 .job-title-container {
 	margin-top: .5rem;
 	margin-bottom: .5rem;
+<<<<<<< HEAD
 }
 
 .footer {
@@ -30,4 +34,6 @@ body {
 	width: 100%;
 	height: 60px;
 	background-color: aliceblue;
+=======
+>>>>>>> 0236b15 (switched to bootstrap)
 }
