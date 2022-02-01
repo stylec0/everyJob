@@ -105,8 +105,8 @@ def signup(request):
 
 def job_title_detail(request, job_title_id):
     details = JobPost.objects.filter(job_title=job_title_id)
-    job_title = JobTitle.object.get(id=job_title_id)
-    return render(request, 'everyjobs/detail.html', {
+    job_title = JobTitle.objects.get(id=job_title_id)
+    return render(request, 'everyJobs/detail.html', {
             'jobPost': details,
             'job_title': job_title
     })
