@@ -6,7 +6,7 @@
 {% else %}
 <h1>Update Job Post</h1>
 {% endif %}
-<form action="{% url 'update_job_post' JobTitle.id %}" method="post">
+<form action="{% url 'update_job_post' JobPost.id %}" method="post">
   {% csrf_token %}
   <table>
     {{ JobUpdateForm }}
