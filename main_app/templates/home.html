@@ -4,14 +4,16 @@
 <h2 class="border-bottom">Job Titles</h2>
 
 <div class="row">
-    {% for job in jobTitle %}
-    <div class="col s12 m5">
-        <a href="{% url 'detail' job.id %}">
-            <div class="card-panel">
-                {{ job.job_title }}
-            </div>
-        </a>
-    </div>
-    {% endfor %} 
+	{% for job in jobTitle %}
+	<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+		<div class='card job-title-container'>
+			<a href="{% url 'detail' job.id %}">
+				<div class="card-body text-center job-title">
+					{{ job.job_title }}
+				</div>
+			</a>
+		</div>
+	</div>
+	{% endfor %}
 </div>
 {% endblock %}
