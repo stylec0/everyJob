@@ -79,8 +79,6 @@ def UpdateJobPost(request, job_post_id):
         update_job_post.user_id = request.user.id
         # save every time new_job_post gets manipulated
         update_job_post.save()
-        #update_job_post.job_title.set(title)
-        #update_job_post.save()
         # return to detail of selected Job Title
         # ('detail' path in urls.py)
         # this first job_title_id is taking the parameter
