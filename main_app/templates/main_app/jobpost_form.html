@@ -1,22 +1,20 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
-<!-- New if/else block -->
 {% if JobTitle %}
 <h1><span class="teal-text">{{JobTitle.job_title}}</span></h1>
 {% else %}
 <h1>Add Job Post</h1>
 {% endif %}
-<!-- Leaving the action empty makes the form post to the same url used to display it -->
 <form action="{% url 'post_job' JobTitle.id %}" method="post">
-  <!-- Django requires the following for security purposes -->
   {% csrf_token %}
   <table>
-    <!-- Render the inputs inside of <tr>s & <td>s -->
     {{ JobForm }}
   </table>
   <input type="submit" value="Submit!" class="btn" />
 </form>
 
+<!-- this overrides materialize error so we can render the industry dropdown on this form -->
 <script>
   const selectEl = document.getElementById('id_industry')
     M.FormSelect.init(selectEl)

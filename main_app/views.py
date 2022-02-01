@@ -20,44 +20,37 @@ def home(request):
     })
 
 
-# make a form for add job, like feeding_form
+# wrote view function because we needed to associate
+# both the user and the JobTitle with the job post being created
 def JobPostCreate(request, job_title_id):
     title = JobTitle.objects.filter(pk=job_title_id)
     job_form = JobPostForm(request.POST)
 
-    print(title, request, request.user,  "<-------- title, request")
     if job_form.is_valid():
         new_job_post = job_form.save(commit=False)
         new_job_post.user_id = request.user.id
+        # save every time new_job_post gets manipulated
         new_job_post.save()
         new_job_post.job_title.set(title)
         new_job_post.save()
-        print(new_job_post, "<----- new job post")
-
+        # return to detail of selected Job Title
+        # ('detail' path in urls.py)
+        # this first job_title_id is taking the parameter
+        # and reassigning it
+        # (re-passing the parameter so we can use it on the page)
     return redirect('detail', job_title_id=job_title_id)
 
 
 def GetJobPostForm(request, job_title_id):
-    # make sure we can find the job title in db
-    jt = JobTitle.objects.get(pk=job_title_id)
-    print(jt, "<--- job title")
-    # render the form
+    # assigning the JobTitle we made the request from
+    # to this variable
+    jobtitle = JobTitle.objects.get(pk=job_title_id)
+    # render the form (jobpost_form.html)
     jobform = JobPostForm()
     return render(request, 'main_app/jobpost_form.html', {
-        'JobTitle': jt,
+        'JobTitle': jobtitle,
         'JobForm': jobform
     })
-
-
-# class JobPostCreate(LoginRequiredMixin, CreateView):
-#    model = JobPost
-#    fields = ['industry', 'details', 'years_experience']
-
-#    def form_valid(self, form):
-#        # form.instance is the jobpost being created
-#        form.instance.user = self.request.user
-#        # this lets the CreateView do it's job
-#        return super().form_valid(form)
 
 
 class JobTitleCreate(LoginRequiredMixin, CreateView):
@@ -67,11 +60,6 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
-
-# def JobPostCreate(request, job_title_id):
-#     print(job_title_id, "id")
-#     print(request, "request")
 
 
 def signup(request):
@@ -91,6 +79,7 @@ def signup(request):
 
 def job_title_detail(request, job_title_id):
     details = JobPost.objects.filter(job_title=job_title_id)
+    # allows us to access the jobTitle name for the detail page
     job_title = JobTitle.objects.get(id=job_title_id)
     return render(request, 'everyJobs/detail.html', {
         'jobPost': details,
