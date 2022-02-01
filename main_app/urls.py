@@ -14,6 +14,13 @@ urlpatterns = [
     # on AddJobPost Form page, when you click submit
     path('everyjob/<int:job_title_id>/post_job/',
          views.JobPostCreate, name='post_job'),
+		 # This route gets the update job post form
+	path('everyjob/<int:job_title_id>/get_job_post_update/',
+         views.GetJobPostUpdate, name='get_job_post_update'),
+		 # This route posts the update job post data
+	path('everyjob/<int:job_title_id>/update_job_post/',
+         views.UpdateJobPost, name='update_job_post'),
+
     path('everyjob/create/', views.JobTitleCreate.as_view(),
          name='job_title_create'),
     path('everyjob/<int:job_title_id>/',

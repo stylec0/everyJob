@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if JobTitle %}
+<h1><span class="teal-text">{{JobTitle.job_title}}</span></h1>
+{% else %}
+<h1>Update Job Post</h1>
+{% endif %}
+<form action="{% url 'update_job_post' JobTitle.id %}" method="post">
+  {% csrf_token %}
+  <table>
+    {{ JobUpdateForm }}
+  </table>
+  <input type="submit" value="Submit!" class="btn" />
+</form>
+
+<!-- this overrides materialize error so we can render the industry dropdown on this form -->
+<script>
+  const selectEl = document.getElementById('id_industry')
+    M.FormSelect.init(selectEl)
+</script>
+{% endblock %}
