@@ -42,4 +42,4 @@ class JobPost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'pk': self.job_title})
+        return reverse('detail', kwargs={'pk': self.job_title, 'job_post_id': self.id})
