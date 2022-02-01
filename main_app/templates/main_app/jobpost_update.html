@@ -7,16 +7,17 @@
 <h1>Update Job Post</h1>
 {% endif %}
 <form action="{% url 'update_job_post' JobPost.id %}" method="post">
-  {% csrf_token %}
-  <table>
-    {{ JobUpdateForm }}
-  </table>
-  <input type="submit" value="Submit!" class="btn" />
+	{% csrf_token %}
+	<div class="row pt-1 pb-1">
+		<div class="col-6">
+			{{ JobForm.industry|as_crispy_field }}
+		</div>
+		<div class="col-6">
+			{{ JobForm.years_experience|as_crispy_field }}
+		</div>
+	</div>
+	{{ JobForm.details|as_crispy_field  }}
+	<input type="submit" value="Submit!" class="btn" />
 </form>
 
-<!-- this overrides materialize error so we can render the industry dropdown on this form -->
-<script>
-  const selectEl = document.getElementById('id_industry')
-    M.FormSelect.init(selectEl)
-</script>
 {% endblock %}

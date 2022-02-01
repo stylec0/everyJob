@@ -15,7 +15,7 @@
 		<div class="card job-post">
 			<div class="top card-header d-flex justify-content-between">
 				<!-- fix this -->
-				<span><small class="text-muted">Field</small> {{job.industry}}</span>
+				<span>Field {{job.industry}}</span>
 				<!-- if statement for one year -->
 				<span class="text-end">{{ job.years_experience }} years experience</span>
 			</div>
@@ -27,7 +27,7 @@
 				<span>Tags #web</span>
 				<!-- add -->
 				<span class="right">date posted</span>
-				<a href="{% url 'get_job_post_update' job.id %}">Edit Job Post</a>
+				<a class="btn btn-outline-success btn-sm" href="{% url 'get_job_post_update' job.id %}">Edit Job Post</a>
 			</div>
 		</div>
 	</div>

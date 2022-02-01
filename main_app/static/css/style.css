@@ -1,5 +1,16 @@
+:root {
+	--main-color: #a29bfe;
+	--main-gray: #2f3640;
+}
+
+.btn-primary {
+	background-color: var(--main-color);
+	border-color: var(--main-color);
+}
+
+
 body {
-	color: #2d3436;
+	color: var(--main-gray);
 
 }
 

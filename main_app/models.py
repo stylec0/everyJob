@@ -36,6 +36,7 @@ class JobPost(models.Model):
         max_length=3,
         choices=INDUSTRIES,
         default=INDUSTRIES[0][0]
+        # why doesn't this work?
     )
     details = models.TextField(max_length=2000)
     years_experience = models.IntegerField()

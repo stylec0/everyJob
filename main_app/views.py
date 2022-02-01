@@ -20,49 +20,23 @@ def home(request):
     })
 
 
-# class SearchView(ListView):
-#     model = JobTitle
-#     template_name = 'home.html'
-#     context_object_name = 'all_search_results'
-
-#     def get_queryset(self):
-#         result = super(SearchView, self).get_queryset()
-#         query = self.request.GET.get('search')
-#         print(self, 'self')
-#         print(query, "query")
-#         if query:
-#             postresult = JobTitle.objects.filter(job_title__contains=query)
-#             print(JobTitle.objects.filter(
-#                 job_title__contains=query), "query result")
-#             result = postresult
-#             print(result, "result")
-#         else:
-#             result = None
-#             print('none')
-#         return result
 def search(request):
     results = []
-    jobTitles = JobTitle.objects.all()
+    # creating an array
+    # jobTitles = JobTitle.objects.all()
     if request.method == "GET":
         query = request.GET.get('search')
-        query = query.lower()
+        # query = query.lower()
         if query == '':
             query = 'None'
         results = JobTitle.objects.filter(job_title__contains=query)
+        # updating results with our filtered data
     return render(request, 'home.html', {'jobTitle': results})
 
-# def search(request):
-# 		if request.method == 'POST':
-#     print(request)
-#     jobTitle = JobTitle.objects.filter(job_title__contains='y')
-#     return render(request, 'home.html', {
-#         'jobTitle': jobTitle
-#     })
-
-
-# this is a test comment
 # wrote view function because we needed to associate
 # both the user and the JobTitle with the job post being created
+
+
 def JobPostCreate(request, job_title_id):
     title = JobTitle.objects.filter(pk=job_title_id)
     job_form = JobPostForm(request.POST)
