@@ -7,3 +7,8 @@ class JobPostForm(ModelForm):
     class Meta:
         model = JobPost
         fields = ['industry', 'details', 'years_experience']
+
+class JobPostUpdateForm(ModelForm):
+    class Meta:
+        model = JobPost
+        fields = ['industry', 'details', 'years_experience']
