@@ -15,7 +15,12 @@
 		<div class="card job-post">
 			<div class="top card-header d-flex justify-content-between">
 				<!-- fix this -->
-				<span>Field {{job.industry}}</span>
+				{{job.industry}}
+				{% for jobpost in job.jobpost_set.all %}
+				<span>Field {{jobpost.get_industry_display}}</span>
+				{% endfor %}
+
+
 				<!-- if statement for one year -->
 				<span class="text-end">{{ job.years_experience }} years experience</span>
 			</div>
