@@ -1,11 +1,8 @@
 from django.db import models
-from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django import forms
 
 
-# To be edited/added later
 INDUSTRIES = (
     ('H', 'Healthcare'),
     ('IT', 'Information Technology'),
@@ -36,7 +33,6 @@ class JobPost(models.Model):
         max_length=3,
         choices=INDUSTRIES,
         default=INDUSTRIES[0][0]
-				# why doesn't this work?
     )
     details = models.TextField(max_length=2000)
     years_experience = models.IntegerField()
@@ -44,4 +40,3 @@ class JobPost(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'pk': self.job_title, 'job_post_id': self.id})
-

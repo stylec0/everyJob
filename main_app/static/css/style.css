@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
 
 :root {
-	--main-color: #a29bfe;
-	--main-gray: #2f3640;
+	--main-color: #3273dc;
+	--main-gray: hsl(215, 15%, 22%);
+	--main-blue: #2160c4;
+	--light-blue: #eef3fc;
 }
 
 body {
@@ -14,11 +16,12 @@ body {
 .btn-primary {
 	background-color: var(--main-color);
 	border-color: var(--main-color);
+	color: white;
 }
 
 .job-title {
 	text-decoration: none;
-	color: #2160c4;
+	color: var(--main-blue);
 	;
 }
 
@@ -30,11 +33,14 @@ body {
 .card-footer {
 	color: #6c757d;
 	font-size: .875em;
+	background-color: var(--light-blue);
+	color: var(--main-blue);
 }
 
 .job-title-container {
 	margin-top: .5rem;
 	margin-bottom: .5rem;
+	background-color: var(--light-blue);
 }
 
 .text-decoration-none {
@@ -42,9 +48,7 @@ body {
 }
 
 .footer {
-	/* position: absolute;
-	bottom: 0; */
 	width: 100%;
 	height: 60px;
-	background-color: aliceblue;
+	background-color: var(--light-blue);
 }
