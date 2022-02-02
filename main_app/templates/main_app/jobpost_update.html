@@ -13,19 +13,15 @@
 	{% csrf_token %}
 	<div class="row pt-1 pb-1">
 		<div class="col-6">
-			{{ JobForm.industry|as_crispy_field }}
+			{{ JobUpdateForm.industry|as_crispy_field }}
 		</div>
 		<div class="col-6">
-			{{ JobForm.years_experience|as_crispy_field }}
+			{{ JobUpdateForm.years_experience|as_crispy_field }}
 		</div>
 	</div>
-	{{ JobForm.details|as_crispy_field  }}
-	<input type="submit" value="Submit!" class="btn" />
-	{% csrf_token %}
-	<table>
-		{{ JobUpdateForm }}
-	</table>
-	<input type="submit" value="Submit!" class="btn" />
+	{{ JobUpdateForm.details|as_crispy_field }}
+	<input type="submit" value="Submit!" class="btn btn-primary mt-4" />
+	
 </form>
 
 {% endblock %}
