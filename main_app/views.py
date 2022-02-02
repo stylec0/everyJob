@@ -20,23 +20,9 @@ def home(request):
     })
 
 
-def search(request):
-    results = []
-    # creating an array
-    # jobTitles = JobTitle.objects.all()
-    if request.method == "GET":
-        query = request.GET.get('search')
-        # query = query.lower()
-        if query == '':
-            query = 'None'
-        results = JobTitle.objects.filter(job_title__contains=query)
-        # updating results with our filtered data
-    return render(request, 'home.html', {'jobTitle': results})
-
+# this is a test comment
 # wrote view function because we needed to associate
 # both the user and the JobTitle with the job post being created
-
-
 def JobPostCreate(request, job_title_id):
     title = JobTitle.objects.filter(pk=job_title_id)
     job_form = JobPostForm(request.POST)
