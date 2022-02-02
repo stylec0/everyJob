@@ -1,11 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-# Create your views here.
-from django.http import HttpResponse
-# import our model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -23,10 +19,8 @@ def home(request):
 def search(request):
     results = []
     # creating an array
-    # jobTitles = JobTitle.objects.all()
     if request.method == "GET":
         query = request.GET.get('search')
-        # query = query.lower()
         if query == '':
             query = 'None'
         results = JobTitle.objects.filter(job_title__contains=query)
@@ -35,6 +29,7 @@ def search(request):
 
 # wrote view function because we needed to associate
 # both the user and the JobTitle with the job post being created
+
 
 @login_required
 def JobPostCreate(request, job_title_id):
@@ -55,6 +50,7 @@ def JobPostCreate(request, job_title_id):
         # (re-passing the parameter so we can use it on the page)
     return redirect('detail', job_title_id=job_title_id)
 
+
 @login_required
 def GetJobPostForm(request, job_title_id):
     # assigning the JobTitle we made the request from
@@ -70,14 +66,14 @@ def GetJobPostForm(request, job_title_id):
 
 @login_required
 def GetJobPostUpdate(request, job_post_id):
-		# get request for form
-		# find post from primary key
+    # get request for form
+    # find post from primary key
     job_post = JobPost.objects.get(pk=job_post_id)
-		# which form model we are using
+    # which form model we are using
     jobupdateform = JobPostUpdateForm()
-		# what page to go to 
+    # what page to go to
     return render(request, 'main_app/jobpost_update.html', {
-				# passing the job post & form to the page listed above
+        # passing the job post & form to the page listed above
         'JobPost': job_post,
         'JobUpdateForm': jobupdateform
     })
@@ -85,16 +81,16 @@ def GetJobPostUpdate(request, job_post_id):
 
 @login_required
 def UpdateJobPost(request, job_post_id):
-    # get_object_or_404 = .get with error handling 
+    # get_object_or_404 = .get with error handling
     job_post = get_object_or_404(JobPost, pk=job_post_id)
-		# request.POST or None = post or throw error 
+    # request.POST or None = post or throw error
     job_form = JobPostUpdateForm(request.POST or None, instance=job_post)
     if job_form.is_valid():
-				# defines the form but wait to save
+        # defines the form but wait to save
         updated_job = job_form.save(commit=False)
-				# add the userid
+        # add the userid
         updated_job.user_id = request.user.id
-				# this save updates the database
+        # this save updates the database
         updated_job.save()
     return redirect('home')
 
@@ -107,14 +103,11 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-#class JobPostDelete(LoginRequiredMixin, DeleteView):
-#    model = JobPost
-#    success_url = '/home/'
 
-def delete(request, job_post_id):
+def job_post_delete(request, job_post_id):
     JobPost.objects.filter(id=job_post_id).delete()
-
     return redirect('home')
+
 
 def signup(request):
     error_message = ''

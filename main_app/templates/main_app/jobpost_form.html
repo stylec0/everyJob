@@ -12,10 +12,10 @@
 	{% csrf_token %}
 	<div class="row pt-1 pb-1">
 		<!-- full width on mobile -->
-		<div class="col-6">
+		<div class="col-12 col-sm-6">
 			{{ JobForm.industry|as_crispy_field }}
 		</div>
-		<div class="col-6">
+		<div class="col-12 col-sm-6">
 			{{ JobForm.years_experience|as_crispy_field }}
 		</div>
 	</div>
