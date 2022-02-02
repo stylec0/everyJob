@@ -107,6 +107,14 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+#class JobPostDelete(LoginRequiredMixin, DeleteView):
+#    model = JobPost
+#    success_url = '/home/'
+
+def delete(request, job_post_id):
+    JobPost.objects.filter(id=job_post_id).delete()
+
+    return redirect('home')
 
 def signup(request):
     error_message = ''

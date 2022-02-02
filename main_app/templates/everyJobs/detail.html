@@ -29,6 +29,9 @@
 				{% if job.user_id == user.id %}
 				<a class="btn btn-outline-success btn-sm" href="{% url 'get_job_post_update' job.id %}">Edit Job Post</a>
 				{% endif %}
+				{% if job.user_id == user.id %}
+				<a class="btn btn-outline-success btn-sm" href="{% url 'job_post_delete' job.id %}">Delete Job Post</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>
