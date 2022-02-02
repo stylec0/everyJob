@@ -14,13 +14,7 @@
 	<div class=" col-12 col-sm-6 mt-3 mb-4">
 		<div class="card job-post">
 			<div class="top card-header d-flex justify-content-between">
-				<!-- fix this -->
-				{{job.industry}}
-				{% for jobpost in job.jobpost_set.all %}
-				<span>Field {{jobpost.get_industry_display}}</span>
-				{% endfor %}
-
-
+				<span>Field - {{job.get_industry_display}}</span>
 				<!-- if statement for one year -->
 				<span class="text-end">{{ job.years_experience }} years experience</span>
 			</div>
