@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
@@ -133,3 +133,4 @@ def job_title_detail(request, job_title_id):
         'jobPost': details,
         'job_title': job_title
     })
+

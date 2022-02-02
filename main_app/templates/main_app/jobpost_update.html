@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+
 {% load crispy_forms_tags %}
+
 {% block content %}
 
 {% if JobTitle %}
@@ -8,6 +10,7 @@
 <h1>Update Job Post</h1>
 {% endif %}
 <form action="{% url 'update_job_post' JobPost.id %}" method="post">
+
 	{% csrf_token %}
 	<div class="row pt-1 pb-1">
 		<div class="col-6">
@@ -22,3 +25,5 @@
 </form>
 
 {% endblock %}
+
+
