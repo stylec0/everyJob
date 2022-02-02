@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
@@ -58,7 +58,6 @@ def GetJobPostForm(request, job_title_id):
 def GetJobPostUpdate(request, job_post_id):
     job_post = JobPost.objects.get(pk=job_post_id)
     jobupdateform = JobPostUpdateForm()
-    print(job_post, jobupdateform, "<---------")
     return render(request, 'main_app/jobpost_update.html', {
         'JobPost': job_post,
         'JobUpdateForm': jobupdateform
@@ -70,23 +69,13 @@ def UpdateJobPost(request, job_post_id):
     #print(job_title_id, job_post_id, "<---------these are the ids")
     #title = JobTitle.objects.filter(pk=job_title_id)
     # job_post value needs to be the job post we are trying to edit specifically
-    job_post = JobPost.objects.filter(id=job_post_id)
-    job_form = JobPostUpdateForm(request.POST)
-    print(job_post, job_form, "<---this is the job_post")
-    #print(job_post_id, "<---this is the job_post_id")
+    job_post = get_object_or_404(JobPost, pk=job_post_id)
+    job_form = JobPostUpdateForm(request.POST or None, instance=job_post)
     if job_form.is_valid():
-        update_job_post = job_form.save(commit=False)
-        update_job_post.user_id = request.user.id
-        # save every time new_job_post gets manipulated
-        update_job_post.save()
-        #update_job_post.job_title.set(title)
-        #update_job_post.save()
-        # return to detail of selected Job Title
-        # ('detail' path in urls.py)
-        # this first job_title_id is taking the parameter
-        # and reassigning it
-        # (re-passing the parameter so we can use it on the page)
-    return redirect('detail', job_post_id=job_post_id)
+        updated_job = job_form.save(commit=False)
+        updated_job.user_id = request.user.id
+        updated_job.save()
+    return redirect('home')
 
 
 class JobTitleCreate(LoginRequiredMixin, CreateView):
