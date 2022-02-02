@@ -11,6 +11,7 @@
 <form action="{% url 'post_job' JobTitle.id %}" method="post">
 	{% csrf_token %}
 	<div class="row pt-1 pb-1">
+		<!-- full width on mobile -->
 		<div class="col-6">
 			{{ JobForm.industry|as_crispy_field }}
 		</div>
