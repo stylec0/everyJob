@@ -21,6 +21,7 @@ urlpatterns = [
     # This route posts the update job post data
     path('post/<int:job_post_id>/update_job_post/',
          views.UpdateJobPost, name='update_job_post'),
+    path('post/<int:job_post_id>/job_post_delete/', views.delete, name='job_post_delete'),
     path('everyjob/create/', views.JobTitleCreate.as_view(),
          name='job_title_create'),
     path('everyjob/<int:job_title_id>/',
