@@ -36,7 +36,7 @@ def search(request):
 # wrote view function because we needed to associate
 # both the user and the JobTitle with the job post being created
 
-
+@login_required
 def JobPostCreate(request, job_title_id):
     title = JobTitle.objects.filter(pk=job_title_id)
     job_form = JobPostForm(request.POST)
@@ -55,7 +55,7 @@ def JobPostCreate(request, job_title_id):
         # (re-passing the parameter so we can use it on the page)
     return redirect('detail', job_title_id=job_title_id)
 
-
+@login_required
 def GetJobPostForm(request, job_title_id):
     # assigning the JobTitle we made the request from
     # to this variable
