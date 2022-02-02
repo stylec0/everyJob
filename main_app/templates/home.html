@@ -8,7 +8,7 @@
 	<!-- 1 column on phones, 2 columns on small screens 3 columns on everything else -->
 	<div class="col-12 col-sm-6 col-md-4">
 		<div class='card job-title-container'>
-			<a href="{% url 'detail' job.id %}">
+			<a class="text-decoration-none" href="{% url 'detail' job.id %}">
 				<div class="card-body text-center job-title">
 					{{ job.job_title }}
 				</div>
