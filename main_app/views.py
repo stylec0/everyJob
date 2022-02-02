@@ -20,9 +20,23 @@ def home(request):
     })
 
 
-# this is a test comment
+def search(request):
+    results = []
+    # creating an array
+    # jobTitles = JobTitle.objects.all()
+    if request.method == "GET":
+        query = request.GET.get('search')
+        # query = query.lower()
+        if query == '':
+            query = 'None'
+        results = JobTitle.objects.filter(job_title__contains=query)
+        # updating results with our filtered data
+    return render(request, 'home.html', {'jobTitle': results})
+
 # wrote view function because we needed to associate
 # both the user and the JobTitle with the job post being created
+
+
 def JobPostCreate(request, job_title_id):
     title = JobTitle.objects.filter(pk=job_title_id)
     job_form = JobPostForm(request.POST)
@@ -52,39 +66,6 @@ def GetJobPostForm(request, job_title_id):
         'JobTitle': jobtitle,
         'JobForm': jobform
     })
-
-
-@login_required
-def GetJobPostUpdate(request, job_title_id):
-    jobtitle = JobTitle.objects.get(pk=job_title_id)
-    jobupdateform = JobPostUpdateForm()
-    return render(request, 'main_app/jobpost_update.html', {
-        'JobTitle': jobtitle,
-        'JobUpdateForm': jobupdateform
-    })
-
-
-@login_required
-def UpdateJobPost(request, job_title_id, job_post_id):
-    title = JobTitle.objects.filter(pk=job_title_id)
-    # job_post value needs to be the job post we are trying to edit specifically
-    job_post = JobPost.objects.filter(id=job_post_id)
-    job_form = JobPostUpdateForm(request.POST)
-    print(job_post, "<---this is the job_post")
-    #print(job_post_id, "<---this is the job_post_id")
-    if job_form.is_valid():
-        update_job_post = job_form.save(commit=False)
-        update_job_post.user_id = request.user.id
-        # save every time new_job_post gets manipulated
-        update_job_post.save()
-        update_job_post.job_title.set(title)
-        update_job_post.save()
-        # return to detail of selected Job Title
-        # ('detail' path in urls.py)
-        # this first job_title_id is taking the parameter
-        # and reassigning it
-        # (re-passing the parameter so we can use it on the page)
-    return redirect('detail', job_title_id=job_title_id)
 
 
 @login_required
