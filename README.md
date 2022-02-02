@@ -1,16 +1,23 @@
-## everyJob
+# everyJob
 
-This is an app serves as inspiration for jobs you didn't even know you wanted, and is great for career transitions or first time workers. Without loggin in you can view a list of all the Job Titles that have been added to the app, and you can view Job Posts from real world workers describing their 
+This is an app serves as inspiration for jobs you didn't even know you wanted, and is great for career transitions or first time workers. Without logging in you can view a list of all the Job Titles that have been added to the app, and you can view Job Posts from real world workers describing their experience.
+
+everyJob was created by four students: Charles, Trisha, Riaz and Sophie
+
 ___
 
-![home page](https://i.imgur.com/7nF0XBz.png)
-Home page, available to the public
+![home page](https://i.imgur.com/9AkxA4C.png)
+Home page, content is the same regardless if you are logged in or not
 
-![](https://i.imgur.com/tZNSD4a.pngg)
-Home page, once logged in
+![add job title page](https://i.imgur.com/iGtekWm.png)
+Add Job Title page, accessible only if you are logged in
 
-![list detail page](https://i.imgur.com/BEeVtA6.png)
-List details page (once you click on a list to view the list). You can add items, and select 'purchase' to delete the item from the list.
+![add job post page](https://i.imgur.com/kowlV9s.png)
+Add Job Post, accessible only if you are logged in
+
+![Job Title detail page](https://i.imgur.com/wArWrMS.png)
+Job Title detail page, this Job Post was created by the logged in user, so you can edit and delete buttons.
+
 ___
 
 ### The technologies we used to build this game are:
@@ -20,6 +27,7 @@ ___
 - Bootstrap
 - PostreSQL
 - Heroku
+- cripsy forms
 
 ___
 
@@ -27,18 +35,29 @@ ___
 
 #### Planning, wireframes, ERD, and user stories are on [this Trello board](https://trello.com/b/X4EKGiAM/jobs)
 
+To get started, browse the Job Titles that display on the homepage. You can click on a Job Title (like Software Engineer, etc) to see the Job Posts asociated with that title. Each Job Post is written by a person who has worked that job, and is a detailed account of what they experience daily in that job.
 
-You can login using Google and create lists. To add items to a list you can click on the list you want to add to, then add items on the list details page. Everything is automatically saved and tied to only your account.
+If you signup, or login, you can create Job Titles that are not listed yet. You can also add Job Posts to Job Titles. Once you add a Job Post you can edit it or delete it as the owner.
 
 #### Launch the app and explore career options: [here]()
 
 ___
 
 ### Planned future enhancements:
-- Add ability to rate importance of an item from 1-5 stars.
+- AAU, I want to be able to see all the users past job title posts (add users page)
 
-- Add ability to see the 'purchased' items from any given list on another view.
+- AAU, I want to add tags to a job title
 
-- Add ability to make book specific lists (have a slightly different input to add, including author and title).
+- AAU, I want to be able to search by Industry
 
-- Make designs responsive.
+- AAU, I want to be able to search all job titles by education
+
+- AAU, I want to be able to add location and salary
+
+- AAU, I want to be able to add a subcategory as Junior and Senior Job listings
+
+- AAU, I want to make sure I am not adding a duplicate job title
+
+- Add a max value for years experience
+
+- Add counter on years experience every year since years posted
