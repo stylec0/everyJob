@@ -23,11 +23,11 @@
 			</div>
 			<div class="bottom card-footer d-flex justify-content-between">
 				<!-- add -->
-				<span>Tags #web</span>
+				<!-- <span>Tags #web</span> -->
 				<!-- add -->
 				<span class="right">date posted</span>
 				{% if job.user_id == user.id %}
-				<a class="btn btn-outline-success btn-sm" href="{% url 'get_job_post_update' job.id %}">Edit Job Post</a>
+				<a class="btn btn-outline-primary btn-sm" href="{% url 'get_job_post_update' job.id %}">Edit Job Post</a>
 				{% endif %}
 				{% if job.user_id == user.id %}
 				<a class="btn btn-outline-success btn-sm" href="{% url 'job_post_delete' job.id %}">Delete Job Post</a>
