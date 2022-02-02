@@ -124,4 +124,3 @@ def job_title_detail(request, job_title_id):
         'jobPost': details,
         'job_title': job_title
     })
-

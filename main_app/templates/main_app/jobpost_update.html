@@ -10,7 +10,6 @@
 <h1>Update Job Post</h1>
 {% endif %}
 <form action="{% url 'update_job_post' JobPost.id %}" method="post">
-
 	{% csrf_token %}
 	<div class="row pt-1 pb-1">
 		<div class="col-6">
@@ -22,8 +21,11 @@
 	</div>
 	{{ JobForm.details|as_crispy_field  }}
 	<input type="submit" value="Submit!" class="btn" />
+	{% csrf_token %}
+	<table>
+		{{ JobUpdateForm }}
+	</table>
+	<input type="submit" value="Submit!" class="btn" />
 </form>
 
 {% endblock %}
-
-
