@@ -33,7 +33,7 @@ ___
 ---
 ### Getting started:
 
-To get started, browse the Job Titles that display on the homepage. You can click on a Job Title (like Software Engineer, etc) to see the Job Posts asociated with that title. Each Job Post is written by a person who has worked that job, and is a detailed account of what they experience daily in that job.
+To get started, browse the Job Titles that display on the homepage. You can click on a Job Title (like Software Engineer, etc) to see the Job Posts associated with that title. Each Job Post is written by a person who has worked that job, and is a detailed account of what they experience daily in that job.
 
 If you signup, or login, you can create Job Titles that are not listed on the Home page yet. You can also add Job Posts to Job Titles. Once you add a Job Post you can edit it or delete it as the owner.
 

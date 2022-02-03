@@ -5,6 +5,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django import forms
+from django.core import validators
+
 from .models import JobTitle, JobPost
 from .forms import JobPostForm, JobPostUpdateForm
 
@@ -100,7 +103,19 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
+        print(form.instance)
         form.instance.user = self.request.user
+
+        for instance in JobTitle.objects.all():
+            print(instance.job_title, '<------------')
+            print(form.instance, '<------------')
+            if instance.job_title == form.instance:
+                print('True')
+                raise forms.ValidationError(
+                    str(job_title) + ' is already created')
+            else:
+                print('false')
+
         return super().form_valid(form)
 
 
