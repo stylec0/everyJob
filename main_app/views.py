@@ -5,9 +5,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from django import forms
-from django.core import validators
-
 from .models import JobTitle, JobPost
 from .forms import JobPostForm, JobPostUpdateForm
 

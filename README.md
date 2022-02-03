@@ -37,7 +37,7 @@ To get started, browse the Job Titles that display on the homepage. You can clic
 
 If you signup, or login, you can create Job Titles that are not listed on the Home page yet. You can also add Job Posts to Job Titles. Once you add a Job Post you can edit it or delete it as the owner.
 
-### Launch the app and explore career options: [here]()
+### Launch the app and explore career options: [here](https://everyjobs.herokuapp.com/)
 
 ___
 
@@ -53,8 +53,6 @@ ___
 - AAU, I want to be able to add location and salary
 
 - AAU, I want to be able to add a subcategory as Junior and Senior Job listings
-
-- AAU, I want to make sure I am not adding a duplicate job title
 
 - Add a max value for years experience
 
