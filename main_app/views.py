@@ -112,7 +112,7 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
             if instance.job_title == form.instance:
                 print('True')
                 raise forms.ValidationError(
-                    str(job_title) + ' is already created')
+                    str(instance.job_title) + ' is already created')
             else:
                 print('false')
 
