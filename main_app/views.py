@@ -103,19 +103,7 @@ class JobTitleCreate(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        print(form.instance)
         form.instance.user = self.request.user
-
-        for instance in JobTitle.objects.all():
-            print(instance.job_title, '<------------')
-            print(form.instance, '<------------')
-            if instance.job_title == form.instance:
-                print('True')
-                raise forms.ValidationError(
-                    str(instance.job_title) + ' is already created')
-            else:
-                print('false')
-
         return super().form_valid(form)
 
 
