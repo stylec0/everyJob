@@ -13,6 +13,11 @@ body {
 		monospace;
 }
 
+main {
+	margin-bottom: 5rem;
+	min-height: 60vh;
+}
+
 .btn-primary {
 	background-color: var(--main-color);
 	border-color: var(--main-color);
