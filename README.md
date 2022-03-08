@@ -1,6 +1,6 @@
 # everyJob
 
-This is an app serves as inspiration for jobs you didn't even know you wanted, and is great for career transitions or first time workers. Without logging in you can view a list of all the Job Titles that have been added to the app, and you can view Job Posts from real world workers describing their experience.
+This app serves as inspiration for jobs you didn't even know you wanted, and is great for career transitions or first time workers. Without logging in you can view a list of all the Job Titles that have been added to the app, and you can view Job Posts from real world workers describing their experience.
 
 everyJob was created by four software engineering students: Charles, Trisha, Riaz and Sophie
 
